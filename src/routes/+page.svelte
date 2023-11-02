@@ -1,27 +1,38 @@
 <script>
-	import StackedBar from '../lib/components/StackedBar.svelte';
 	import TramosChart from '../lib/components/TramosChart.svelte';
+	import { calculatePercentajeValue } from '$lib/utils.js';
 
-	let salary = 20000;
+	let salary = 30000;
+	$: tramos = calculatePercentajeValue(salary);
+	$: totalSum = tramos.reduce((partialSum, a) => partialSum + a, 0);
+	$: totalSumDisplay = totalSum.toLocaleString('es-ES', { maximumFractionDigits: 2 });
+	$: ratioDisplay = ((totalSum / salary) * 100).toLocaleString('es-ES', {
+		maximumFractionDigits: 2
+	});
 </script>
 
-<main class="max-w-2xl mx-auto">
-	<h1 class="font-bold text-center text-4xl mb-20">Tramos IRPF</h1>
+<main class="w-[95%] md:max-w-2xl mx-auto">
+	<h1 class="font-bold text-center text-6xl mb-5">Tramos IRPF</h1>
+	<h3 class="mb-10 max-w-sm mx-auto">
+		Calcula qué porcentaje habrás de pagar en la declaración de la renta en función de tus ingresos
+		anuales siendo autónomo. <br /><br /> Desliza o introduce tus ingresos anuales para ver el desglose
+		de gastos.
+	</h3>
 
 	<div class="mx-auto w-fit flex flex-col">
 		<label for="salary"
 			><input
 				type="number"
 				bind:value={salary}
-				class="input input-bordered"
+				class="input input-bordered input-lg font-bold text-center tabular-nums text-3xl"
 				placeholder="Your anual salary"
 			/></label
 		>
 
-		<label for="salaryRange ">
+		<label for="salaryRange">
 			<input
 				type="range"
-				class="input w-full"
+				class="range range-secondary w-full"
 				min="5000"
 				max="1000000"
 				bind:value={salary}
@@ -32,14 +43,23 @@
 
 	<div class="divider" />
 
-	<div class="text-2xl">
-		Your salary:
-		{#if salary != undefined && salary != null}
-			<span class="font-bold tabular-nums">
-				{salary.toLocaleString('es-ES', { maximumFractionDigits: 2 })}€
-			</span>
-		{/if}
+	<div class="text-2xl flex items-start justify-between">
+		<div>
+			Ingresos anuales:
+			{#if salary != undefined && salary != null}
+				<span class="font-bold tabular-nums">
+					{salary.toLocaleString('es-ES', { maximumFractionDigits: 2 })}€
+				</span>
+			{/if}
+		</div>
+		<div class="flex flex-col">
+			<div class="text-right">
+				Total a pagar: <span class="tabular-nums font-bold">{totalSumDisplay}€</span>
+			</div>
+			<div class="text-right text-base opacity-50">
+				Porcentaje del total: <span class="tabular-nums font-bold">{ratioDisplay}%</span>
+			</div>
+		</div>
 	</div>
 </main>
 <TramosChart {salary} />
-<!-- <StackedBar /> -->

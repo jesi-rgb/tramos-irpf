@@ -17,16 +17,30 @@ export let tramos = [
 ];
 
 export function calculatePercentajeValue(salary) {
-  let cumulativeSalary = salary;
   let valuePorTramo = [];
+  let finishedTramos = false;
 
-  Object.keys(tramosDict).forEach((e) => {
-    cumulativeSalary -= e;
-
-    if (cumulativeSalary < 0) {
+  Object.keys(tramosDict).forEach((e, i) => {
+    if (finishedTramos) {
       return;
     }
-    valuePorTramo.push(cumulativeSalary * tramosDict[e]);
+
+    if (salary > e) {
+      if (i == 0) valuePorTramo.push(e * tramosDict[e]);
+      else {
+        let diff = e - Object.keys(tramosDict)[i - 1];
+        valuePorTramo.push(tramosDict[e] * diff);
+      }
+    } else {
+      if (i == 0) {
+        valuePorTramo.push(salary * tramosDict[e]);
+      } else {
+        let diffWRTPrevious = salary - Object.keys(tramosDict)[i - 1];
+        valuePorTramo.push(diffWRTPrevious * tramosDict[e]);
+      }
+      finishedTramos = true;
+    }
   });
-  console.log(valuePorTramo);
+
+  return valuePorTramo;
 }

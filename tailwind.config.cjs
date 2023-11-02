@@ -7,7 +7,7 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['AT Name Sans Variable']
+        sans: ['AT Name Sans Variable', 'SF Pro']
       }
     }
   },
