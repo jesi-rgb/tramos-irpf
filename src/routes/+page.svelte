@@ -12,8 +12,8 @@
 </script>
 
 <main class="w-[95%] md:max-w-2xl mx-auto">
-	<h1 class="font-bold text-center text-6xl mb-5">Tramos IRPF</h1>
-	<h3 class="mb-10 max-w-sm mx-auto">
+	<h1 class="font-bold md:text-center text-6xl mb-5">Tramos IRPF</h1>
+	<h3 class="mb-10 md:max-w-sm mx-auto">
 		Calcula qué porcentaje habrás de pagar en la declaración de la renta en función de tus ingresos
 		anuales siendo autónomo. <br /><br /> Desliza o introduce tus ingresos anuales para ver el desglose
 		de gastos.
@@ -24,7 +24,7 @@
 			><input
 				type="number"
 				bind:value={salary}
-				class="input input-bordered input-lg font-bold text-center tabular-nums text-3xl"
+				class="input input-bordered md:input-lg font-bold text-center tabular-nums md:text-3xl"
 				placeholder="Your anual salary"
 			/></label
 		>

@@ -10,7 +10,7 @@
 </script>
 
 <div class="w-[95%] mx-auto mt-10">
-	<svg class="w-full border border-dashed border-secondary rounded-xl p-10" height="300px">
+	<svg class="w-full border border-dashed border-secondary rounded-xl px-1 md:p-10" height="300px">
 		<defs
 			><linearGradient id="bw">
 				<stop offset="0.7" stop-color="white" />
