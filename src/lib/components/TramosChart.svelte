@@ -87,7 +87,7 @@
 					font-size="30"
 					dominant-baseline="middle"
 					mask="url(#{i})"
-					class="fill-primary-content z-10 tabular-nums">{tramosDict[tramo] * 100}%</text
+					class="fill-primary-content z-10 font-bold tabular-nums">{tramosDict[tramo] * 100}%</text
 				>
 			{/each}
 		</g>

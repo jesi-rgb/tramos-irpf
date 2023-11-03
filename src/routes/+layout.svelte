@@ -1,5 +1,5 @@
 <script>
-	import '../app.postcss';
+	import '../app.css';
 </script>
 
 <main class="my-20 mx-auto">

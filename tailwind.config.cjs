@@ -7,7 +7,7 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['AT Name Sans Variable', 'SF Pro']
+        sans: ['Satoshi', 'Inter', '--system-ui', '--apple-system']
       }
     }
   },
