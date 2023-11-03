@@ -2,7 +2,7 @@
 	import TramosChart from '../lib/components/TramosChart.svelte';
 	import { calculatePercentajeValue } from '$lib/utils.js';
 
-	let salary = 2000000;
+	let salary = 30000;
 	$: tramos = calculatePercentajeValue(salary);
 	$: totalSum = tramos.reduce((partialSum, a) => partialSum + a, 0);
 	$: totalSumDisplay = totalSum.toLocaleString('es-ES', { maximumFractionDigits: 2 });
