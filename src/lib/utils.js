@@ -41,8 +41,6 @@ export function calculatePercentajeValue(salary) {
       }
       finishedTramos = true;
     }
-
-    console.log(e, valuePorTramo);
   });
 
   return valuePorTramo;
