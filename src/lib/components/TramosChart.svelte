@@ -1,6 +1,8 @@
 <script>
 	import { tramosDict, calculatePercentajeValue } from '$lib/utils.js';
-	export let salary;
+
+	export let salary = 30000;
+	console.log('tramos', salary);
 	$: tramos = calculatePercentajeValue(salary);
 
 	let defaultMax = 100000;

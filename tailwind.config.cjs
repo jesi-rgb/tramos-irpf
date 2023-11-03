@@ -7,7 +7,7 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Satoshi', 'Inter', '--system-ui', '--apple-system']
+        sans: ['Amulya', 'Inter', '--system-ui', '--apple-system']
       }
     }
   },

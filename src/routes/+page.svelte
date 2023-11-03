@@ -1,11 +1,17 @@
 <script>
+	// import { tweened } from 'svelte/motion';
+	// import { cubicOut } from 'svelte/easing';
 	import TramosChart from '../lib/components/TramosChart.svelte';
 	import { calculatePercentajeValue } from '$lib/utils.js';
 
 	let salary = 30000;
+
 	$: tramos = calculatePercentajeValue(salary);
 	$: totalSum = tramos.reduce((partialSum, a) => partialSum + a, 0);
-	$: totalSumDisplay = totalSum.toLocaleString('es-ES', { maximumFractionDigits: 2 });
+	$: totalSumDisplay = totalSum.toLocaleString('es-ES', {
+		maximumFractionDigits: 2,
+		minimumFractionDigits: 2
+	});
 	$: ratioDisplay = ((totalSum / salary) * 100).toLocaleString('es-ES', {
 		maximumFractionDigits: 2
 	});
@@ -73,5 +79,6 @@
 	<div class="divider" />
 	Desarrollado por{' '}<a class="underline text-secondary" href="https://jesirgb.com"
 		>Jesús Rascón</a
-	>.
+	>. Maquetado en
+	<a class="underline text-secondary" href="https://www.fontshare.com/fonts/amulya">Amulya</a>.
 </footer>
