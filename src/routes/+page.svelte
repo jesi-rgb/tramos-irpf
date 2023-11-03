@@ -1,6 +1,7 @@
 <script>
 	// import { tweened } from 'svelte/motion';
 	// import { cubicOut } from 'svelte/easing';
+	import { MetaTags } from 'svelte-meta-tags';
 	import TramosChart from '../lib/components/TramosChart.svelte';
 	import { calculatePercentajeValue } from '$lib/utils.js';
 
@@ -17,6 +18,23 @@
 		minimumFractionDigits: 2
 	});
 </script>
+
+<MetaTags
+	title="Calculadora Tramos IRPF"
+	description="Calcula cuánto habrás de pagar en función de tus ingresos anuales."
+	canonical="https://tramos-irpf.vercel.app/"
+	openGraph={{
+		url: 'https://tramos-irpf.vercel.app/',
+		title: 'Calculadora Tramos IRPF',
+		description: 'Calcula cuánto habrás de pagar en función de tus ingresos anuales.'
+	}}
+	twitter={{
+		handle: '@jesi-rgb',
+		cardType: 'summary_large_image',
+		title: 'Calculadora Tramos IRPF',
+		description: 'Calcula cuánto habrás de pagar en función de tus ingresos anuales.'
+	}}
+/>
 
 <main class="w-[95%] md:max-w-2xl mx-auto">
 	<h1 class="font-bold md:text-center text-6xl mb-5">Tramos IRPF</h1>
