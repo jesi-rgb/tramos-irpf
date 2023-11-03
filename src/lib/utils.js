@@ -4,7 +4,8 @@ export let tramosDict = {
   35200: 0.3,
   60000: 0.37,
   300000: 0.45,
-  1000000: 0.47
+  301000: 0.47,
+  100000000: 0.47
 };
 
 export let tramos = [
@@ -40,6 +41,8 @@ export function calculatePercentajeValue(salary) {
       }
       finishedTramos = true;
     }
+
+    console.log(e, valuePorTramo);
   });
 
   return valuePorTramo;

@@ -10,7 +10,7 @@
 </script>
 
 <div class="w-[95%] mx-auto mt-10">
-	<svg class="w-full border border-dashed border-secondary" height="300px">
+	<svg class="w-full border border-dashed border-secondary rounded-xl p-10" height="300px">
 		<defs
 			><linearGradient id="bw">
 				<stop offset="0.7" stop-color="white" />
@@ -95,9 +95,10 @@
 		<g>
 			{#each Object.keys(tramosDict) as tramo, i}
 				<text
-					font-size="16"
+					font-size="20"
 					y="{(100 + rectHeight) / 2 + 10}%"
-					class="fill-base-content"
+					class="fill-base-content tabular-nums"
+					dominant-baseline="middle"
 					mask="url(#{i + 1})"
 					x="{(Object.keys(tramosDict)[i] / maxTramos) * 100}%"
 				>

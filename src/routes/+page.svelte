@@ -2,7 +2,7 @@
 	import TramosChart from '../lib/components/TramosChart.svelte';
 	import { calculatePercentajeValue } from '$lib/utils.js';
 
-	let salary = 30000;
+	let salary = 2000000;
 	$: tramos = calculatePercentajeValue(salary);
 	$: totalSum = tramos.reduce((partialSum, a) => partialSum + a, 0);
 	$: totalSumDisplay = totalSum.toLocaleString('es-ES', { maximumFractionDigits: 2 });
@@ -59,7 +59,19 @@
 			<div class="text-right text-base opacity-50">
 				Porcentaje del total: <span class="tabular-nums font-bold">{ratioDisplay}%</span>
 			</div>
+			<div class="text-right text-base opacity-50">
+				Restante: <span class="tabular-nums font-bold"
+					>{(salary - totalSum).toLocaleString('es-ES', { maximumFractionDigits: 2 })}€</span
+				>
+			</div>
 		</div>
 	</div>
 </main>
 <TramosChart {salary} />
+
+<footer class="w-[95%] md:max-w-2xl mx-auto mt-10">
+	<div class="divider" />
+	Desarrollado por{' '}<a class="underline text-secondary" href="https://jesirgb.com"
+		>Jesús Rascón</a
+	>.
+</footer>
