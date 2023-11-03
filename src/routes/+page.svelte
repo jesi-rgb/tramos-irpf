@@ -13,7 +13,8 @@
 		minimumFractionDigits: 2
 	});
 	$: ratioDisplay = ((totalSum / salary) * 100).toLocaleString('es-ES', {
-		maximumFractionDigits: 2
+		maximumFractionDigits: 2,
+		minimumFractionDigits: 2
 	});
 </script>
 
@@ -67,7 +68,10 @@
 			</div>
 			<div class="text-right text-base opacity-50">
 				Restante: <span class="tabular-nums font-bold"
-					>{(salary - totalSum).toLocaleString('es-ES', { maximumFractionDigits: 2 })}€</span
+					>{(salary - totalSum).toLocaleString('es-ES', {
+						maximumFractionDigits: 2,
+						minimumFractionDigits: 2
+					})}€</span
 				>
 			</div>
 		</div>
